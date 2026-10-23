@@ -1,4 +1,4 @@
-# -*- coding: utf-8 -*-
+﻿# -*- coding: utf-8 -*-
 """Сбор Мешка через uc с ручной разблокировкой Cloudflare капчи.
 
 Шаги:
@@ -18,7 +18,7 @@ from pathlib import Path
 import undetected_chromedriver as uc
 from bs4 import BeautifulSoup
 
-BASE = Path(r"C:\Users\skrob\OneDrive\Рабочий стол\Gold_Parser")
+BASE = Path(__file__).resolve().parent
 
 
 def parse_price(t):

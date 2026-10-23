@@ -1,4 +1,4 @@
-# -*- coding: utf-8 -*-
+﻿# -*- coding: utf-8 -*-
 """Генерация иконки-ярлыка 'Gold Parser' и запуск.
 
 Создаёт gold_icon.ico в папке проекта и .lnk на рабочем столе (реальном и OneDrive,
@@ -9,7 +9,7 @@
 import sys
 from pathlib import Path
 
-BASE = Path(r"C:\Users\skrob\OneDrive\Рабочий стол\Gold_Parser")
+BASE = Path(__file__).resolve().parent
 ICO_PATH = BASE / "gold_icon.ico"
 
 def make_icon():

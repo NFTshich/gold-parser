@@ -1,4 +1,4 @@
-# -*- coding: utf-8 -*-
+﻿# -*- coding: utf-8 -*-
 """Сборщик Мешка через undetected-chromedriver с ПОСТОЯННЫМ профилем.
 
 Логика (Cloudflare кэштся по профилю браузера):
@@ -18,7 +18,7 @@ import argparse
 import undetected_chromedriver as uc
 from bs4 import BeautifulSoup
 
-BASE = Path(r"C:\Users\skrob\OneDrive\Рабочий стол\Gold_Parser")
+BASE = Path(__file__).resolve().parent
 PROFILE = BASE / "data" / "chrome_meshok_profile"
 
 

@@ -1,4 +1,4 @@
-# -*- coding: utf-8 -*-
+﻿# -*- coding: utf-8 -*-
 """История найденных лотов (SQLite data/history.db) и статистика.
 
 Пишем ВСЕ найденные лоты (не только выгодные), чтобы можно было показать
@@ -15,7 +15,7 @@ import sqlite3
 from datetime import datetime, timedelta
 from pathlib import Path
 
-BASE = Path(r"C:\Users\skrob\OneDrive\Рабочий стол\Gold_Parser")
+BASE = Path(__file__).resolve().parent
 HISTORY_DB = BASE / "data" / "history.db"
 
 SCHEMA = """

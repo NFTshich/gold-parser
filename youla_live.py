@@ -1,4 +1,4 @@
-# -*- coding: utf-8 -*-
+﻿# -*- coding: utf-8 -*-
 """Юла — сбор карточек через ЖИВЫЕ элементы (driver.find_elements), не page_source.
 
 Юла рендерит карточки через Vue (виртуальный скролл); page_source не содержит
@@ -13,7 +13,7 @@ from selenium.webdriver.common.keys import Keys
 import undetected_chromedriver as uc
 from bs4 import BeautifulSoup
 
-BASE = Path(r"C:\Users\skrob\OneDrive\Рабочий стол\Gold_Parser")
+BASE = Path(__file__).resolve().parent
 PROFILE = BASE / "data" / "chrome_youla_profile"
 QUERY = sys.argv[1] if len(sys.argv) > 1 else "микросхемы"
 
