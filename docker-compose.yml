@@ -1,0 +1,37 @@
+# Gold Parser — docker-compose (экспериментально, для Linux/VPS)
+# Основная платформа — Windows (см. README_INSTALL.md). Этот файл — заготовка.
+# Перед запуском убедись, что пути BASE в config.py/bot/*.py заменены на /app.
+
+version: "3.8"
+
+services:
+  # Telegram-бот-подписчик (приём команд, подписки, /scan)
+  bot:
+    build: .
+    container_name: goldparser_bot
+    command: python -m bot.telegram_bot
+    env_file: .env
+    environment:
+      TG_TOKEN: ${TG_TOKEN}
+    volumes:
+      - ./data:/app/data
+      - ./output:/app/output
+    restart: unless-stopped
+    # нужен доступ к Chrome; в реальном контейнере включи headless-режим
+
+  # Рабочий процесс: мониторинг и автопостинг в каналы
+  worker:
+    build: .
+    container_name: goldparser_worker
+    command: python app.py monitor --post-to ${CHANNEL_FREE:-0} --post-to-pro ${CHANNEL_PRO:-0}
+    env_file: .env
+    environment:
+      TG_TOKEN: ${TG_TOKEN}
+      CHANNEL_FREE: ${CHANNEL_FREE}
+      CHANNEL_PRO: ${CHANNEL_PRO}
+    volumes:
+      - ./data:/app/data
+      - ./output:/app/output
+    restart: unless-stopped
+
+# Секреты — в .env (не коммитить). См. .env.example.

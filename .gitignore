@@ -1,0 +1,14 @@
+# Sensitive data - NEVER commit
+.env
+data/
+output/
+__pycache__/
+*.py[cod]
+
+# Real scraped data CSV (reference CSV is ok, but keep safe)
+# (components.csv and sample_lots.csv can be committed intentionally)
+
+# Local overrides
+.vscode/
+.idea/
+*.log
